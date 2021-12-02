@@ -6,9 +6,9 @@
   <meta charset="utf-8">
 
   {% if title %}
-  <title>Instadash-Hub - {{title}}</title>
+  <title style="font-family: 'Grand Hotel', cursive; color:blue;font-size:70px;">Instadash-Hub - {{title}}</title>
   {% else %}
-    <title> Instadash-Hub </title>
+    <title style="font-family: 'Grand Hotel', cursive; color:blue;font-size:70px;"> Instadash-Hub </title>
   {% endif %}
 
   {% block styles %}
@@ -16,6 +16,13 @@
     <link rel="stylesheet" href="{% static 'css/index.css' %}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cookie&family=Lobster+Two:ital@1&family=M+PLUS+1+Code:wght@500;540&family=Outfit:wght@100&family=Petemoss&family=Staatliches&family=Tangerine:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Petemoss&family=Staatliches&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/8637a3581a.js" crossorigin="anonymous"></script>
+    
 
   {% endblock %}
 
@@ -23,7 +30,7 @@
 <body>
     {% include "navbar.html" %}
 
-    {% block content %} <h1 class='text-center head'>Instadash-Hub</h1> {%endblock%}
+    {% block content %} <h1 class='text-center head' id='first'>Instadash-Hub</h1> {%endblock%}
 
     {% block scripts %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

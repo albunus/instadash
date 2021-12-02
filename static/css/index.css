@@ -4,3 +4,29 @@ h1{
 body{
     margin: 2rem;
 }
+
+#first{
+    font-family: 'Cookie', cursive;
+    font-family: 'Lobster Two', cursive;
+    font-family: 'M PLUS 1 Code', sans-serif;
+    font-family: 'Outfit', sans-serif;
+    font-family: 'Petemoss', cursive;
+    font-family: 'Staatliches', cursive;
+    font-family: 'Tangerine', cursive;
+    font-size: 60px;
+
+
+}
+    .button {
+        background-color: #ddd;
+        border: none;
+        color: black;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 16px;
+      }
+
