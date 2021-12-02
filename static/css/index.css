@@ -1,5 +1,5 @@
 h1{
-    color: purple;
+    color: rgb(179, 24, 62);
 }
 body{
     margin: 2rem;
@@ -29,4 +29,6 @@ body{
         cursor: pointer;
         border-radius: 16px;
       }
+
+
 
