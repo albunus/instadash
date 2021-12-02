@@ -11,25 +11,55 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+from pathlib import Path
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+import dj_database_url
 from decouple import config,Csv
 
+MODE=config("MODE", default="dev")
 SECRET_KEY = config('SECRET_KEY')
+DEBUG = os.environ.get('DEBUG', True)
+# development
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default=config('DATABASE_URL')
+#     )
+# }
+
+# db_from_env = dj_database_url.config(conn_max_age=500)
+# DATABASES['default'].update(db_from_env)
+
+# ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
+
+cloudinary.config( 
+  cloud_name = "dst0mtiox", 
+  api_key = "892972418384725", 
+  api_secret = "JHQn-MNQN2RXQ5YcDrB_Reu82i8" 
+)
+
+
+CLOUDINARY_STORAGE ={
+    "CLOUD_NAME": "dst0mtiox", 
+    "API_KEY":"892972418384725", 
+    "API_SECRET":"JHQn-MNQN2RXQ5YcDrB_Reu82i8" 
+}
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
+# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -40,7 +70,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'insta'
+    'insta.apps.InstaConfig',
+    'bootstrap4',
+    'cloudinary',
 ]
 
 MIDDLEWARE = [
