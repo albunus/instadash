@@ -1,12 +1,36 @@
-{%extends 'all-insta/base.html'%}
-
+{% extends "all-insta/base.html" %}
 {% block content %}
-{{block.super}}
-
-<body>
-   <h1>Welcome to Insta-Clone</h1>
-
-    
-</body>
-
-{% endblock %}
+<h1 class='text-center head' id='first'><i class="fa fa-instagram" aria-hidden="true text-dark"></i>Instadash</h1>
+<div class="photo-gallery">
+    <div class="container-fluid">
+      <div class="px-lg-5">
+        <!-- display default password and username -->
+        <div class="row">
+            {% for pic in images %}
+            <!-- Gallery Photo item start -->
+            <div class="col-xl-3 col-lg-4 col-md-12 mb-4">
+              <div class="bg-white rounded shadow-sm" id="images"><img src="{{ pic.image.url }}" alt=""
+                  class="">
+                <div class="p-4">
+                  <h5 class="headings text-center text-capitalize" id="name"> {{ pic.name }}</h5>
+                  <div class="d-flex justify-content-between">
+                    <div>
+                      <div class="text-muted">
+                        <span class="text-dark text-capitalize">{{ pic.caption }}</span>
+                      </div>
+                    </div>
+                    <div>
+                      <large class="text-muted">
+                        <span class="badge rounded-pill date text-white text-capitalize">{{ pic.created_at|date }}</span>
+                      </large>
+                    </div>
+                </div>
+                </div>
+            </div>
+           </div>
+           {% endfor%}
+        </div>
+        </div>
+    </div>
+</div>
+{%endblock%}

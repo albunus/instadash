@@ -34,17 +34,17 @@ DEBUG = os.environ.get('DEBUG', True)
 
 # ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
-cloudinary.config( 
-  cloud_name = "dst0mtiox", 
-  api_key = "892972418384725", 
-  api_secret = "JHQn-MNQN2RXQ5YcDrB_Reu82i8" 
+cloudinary.config(
+    cloud_name = config('CD_NAME'),
+    api_key= config('CD_API'),
+    api_secret=config('CD_SECRET'),
+    secure = config('CD_SECURE')
 )
-
-
-CLOUDINARY_STORAGE ={
-    "CLOUD_NAME": "dst0mtiox", 
-    "API_KEY":"892972418384725", 
-    "API_SECRET":"JHQn-MNQN2RXQ5YcDrB_Reu82i8" 
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME':config('CD_NAME'),
+    'API_KEY': config('CD_API'),
+    'API_SECRET':config('CD_SECRET'),
+    'SECURE':config('CD_SECURE')
 }
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 

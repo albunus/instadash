@@ -30,5 +30,11 @@ body{
         border-radius: 16px;
       }
 
+      .date{
+          background-color: greenyellow;
+      }
 
-
+      #name{
+          background-color: aqua;
+          color: brown;
+      }

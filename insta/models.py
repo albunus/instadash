@@ -10,5 +10,11 @@ class Images(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     image = CloudinaryField('image')
     
+    def save_image(self):
+        self.save()
+    
+    def delete_image(self):
+        self.delete()
+    
     def __str__(self):
-        return self.pic_name
+        return self.name
