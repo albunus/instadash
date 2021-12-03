@@ -23,16 +23,7 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = os.environ.get('DEBUG', True)
 # development
 
-# DATABASES = {
-#     'default': dj_database_url.config(
-#         default=config('DATABASE_URL')
-#     )
-# }
 
-# db_from_env = dj_database_url.config(conn_max_age=500)
-# DATABASES['default'].update(db_from_env)
-
-# ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 cloudinary.config(
     cloud_name = config('CD_NAME'),
@@ -73,6 +64,7 @@ INSTALLED_APPS = [
     'insta.apps.InstaConfig',
     'bootstrap4',
     'cloudinary',
+    
 ]
 
 MIDDLEWARE = [
@@ -150,6 +142,9 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+
+LOGIN_REDIRECT_URL = 'index'
 
 
 # Static files (CSS, JavaScript, Images)

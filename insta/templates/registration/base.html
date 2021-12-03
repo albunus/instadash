@@ -1,33 +1,35 @@
 {% load bootstrap4 %}
-{% load staticfiles %}
+{% load static %}
 <!DOCTYPE html>
 <html>
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+
+    <title>Instagram Application - Account </title>
+    <!-- favico -->
 
 
-  {%if title%}
-
-  <title>{{title}}</title>
-
-  {%endif%}
-
-  {% block styles %}
+    {% block styles %}
     {% bootstrap_css %}
-  {% endblock %}
+    <link rel="stylesheet" href="{% static 'css/index.css'%}">
+    {% endblock %}
 
 </head>
 
 <body>
+    <!-- content -->
+    {% block content %}
 
-  {% block content %}  {%endblock%}
+    {%endblock%}
 
+    
 
-  {% block scripts %}
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- scripts -->
+    {% block scripts %}
     {% bootstrap_javascript %}
-  {% endblock %}
+    {% endblock %}
 
 </body>
+
+</html>

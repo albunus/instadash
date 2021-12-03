@@ -17,24 +17,32 @@ body{
 
 
 }
-    .button {
-        background-color: #ddd;
-        border: none;
-        color: black;
-        padding: 10px 20px;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        margin: 4px 2px;
-        cursor: pointer;
-        border-radius: 16px;
+.button {
+    background-color: #ddd;
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+     margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 16px;
+    }
+
+.date{
+    background-color: greenyellow;
       }
 
-      .date{
-          background-color: greenyellow;
-      }
+#name{
+    background-color: aqua;
+    color: brown;
+    }
+#account{
+    float: right;
+    color: red;
+}
 
-      #name{
-          background-color: aqua;
-          color: brown;
-      }
+#loginpage{
+    background-color: aqua;
+}

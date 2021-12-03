@@ -1,37 +1,79 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-warning" id="navbar">
+  <img src="static/images/instagram.png" width="70" height="50" />
 
-        <img src="static/images/instagram.png" width="70" height="50">
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span></button
+  ><br /><br /><br />
 
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button><br><br><br>
-  
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-
-        <li class="nav-item active">
-            <a style ="color:black;" href="/admin" class="nav-item text-dark" active-color="black"><i class="fas fa-user-tie text-dark"></i>&nbsp; &nbsp;Admin</a>
-        </li>
-        <li class="nav-item nav">
-          <a class="nav-link nav" href="/"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
-        </li>
-        <li class="nav-item dropdown nav">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <i class="fa fa-map-marker" aria-hidden="true"></i> My Account
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a
+          style="color: black"
+          href="/admin"
+          class="nav-item text-dark"
+          active-color="black"
+          ><i class="fas fa-user-tie text-dark"></i>&nbsp; &nbsp;Admin</a
+        >
+      </li>
+      <li class="nav-item nav">
+        <a class="nav-link nav" href="/"
+          ><i class="fa fa-home" aria-hidden="true"></i> Home</a
+        >
+      </li>
+    </ul>
+    <div class="col-sm-6 col-md-6 id="account">
+      {% if user.is_authenticated %}
+      <ul>
+        <li class="dropdown">
+          <a
+            href="#"
+            class="dropdown-toggle btn btn-default"
+            data-toggle="dropdown"
+            role="button"
+            aria-expanded="false"
+            ><i class="fa fa-sign-in" aria-hidden="true"></i> My Account
+            <span class="caret"></span>
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
+          <ul class="dropdown-menu" role="menu">
+            <li>
+              <a href="/accounts/password/change">Change Password</a>
+            </li>
+            <li>
+              <a href="/logout">Logout</a>
+            </li>
+          </ul>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0 button">
-        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
+      {% else %}
+      <li>
+        <a class="btn btn-default" href="/accounts/login">Login</a>
+      </li>
+
+      {% endif %}
     </div>
-  </nav>
-  <br>
-  <hr>
+
+    <form class="form-inline my-2 my-lg-0 button">
+      <input
+        class="form-control mr-sm-2"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+      />
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+        Search
+      </button>
+    </form>
+
+  </div>
+</nav>
+<br />
+<hr />
