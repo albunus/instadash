@@ -12,6 +12,20 @@ class Images(models.Model):
     
     def save_image(self):
         self.save()
+        
+        
+    # update image
+    def update_image(self, name):
+        self.name = name
+        self.name = name
+        self.save()
+
+    # get all images
+    @classmethod
+    def get_all_images(cls):
+        images = Images.objects.all()
+        return images
+
     
     def delete_image(self):
         self.delete()
