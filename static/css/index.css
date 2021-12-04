@@ -1,3 +1,10 @@
+
+#navbar{
+    background: rgb(173,32,94);
+    background: radial-gradient(circle, rgba(173,32,94,1) 5%, rgba(224,22,218,0.7203256302521008) 30%, rgba(160,185,229,1) 52%, rgba(194,194,14,1) 74%, rgba(148,187,233,1) 93%);
+padding: 1rem;
+text-indent: 1rem;
+}
 h1{
     color: rgb(179, 24, 62);
 }

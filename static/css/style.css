@@ -1,0 +1,17 @@
+
+.profile{
+    border-radius: 50%;
+    width: 300px;
+    height: 250px;
+    border: 3px solid rgb(156, 24, 24);
+    background: rgb(80, 6, 64);
+    margin: auto;
+    padding: 15px 10px;
+}
+.profileimg{
+    height: 800px;
+    border-radius: 50%;
+}
+.para{
+    padding: 1rem;
+}

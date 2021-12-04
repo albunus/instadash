@@ -1,0 +1,38 @@
+{% extends "all-insta/base.html" %}
+{% load bootstrap4 %}
+{% load static%}
+{% block content %}
+
+<section class=" container">
+   
+        <div class="row">
+            <div class="col-md-4 ">
+                <div class="card round-pill">
+                    {% if profile.profile_photo %}
+                    <img src="{{profile.profile_photo.url}}" alt="" class="card-img-top profile">
+                    {%else%}
+                    <img src="https://st2.depositphotos.com/1104517/11965/v/600/depositphotos_119659092-stock-illustration-male-avatar-profile-picture-vector.jpg"
+                    class="rounded-circle " alt="My profile"> 
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-md-1"></div>
+                <div class="col-md-3">
+                    <p class="para">{{ profile.nickname }}<i class="fas fa-check-double text-info"></i><a href="#" class="para">Follow</a><i class="fas fa-fire text-danger"></i></p> 
+
+                    <p>{{ user.username }}</p>
+                        {% if profile.bio %}
+                        <small>{{ profile.bio }}</small>
+                        {% else %}
+                        <span class="text-danger">No about me</span>
+                        {% endif %}
+                    </p>
+                    <h6>Joined on: <span class="badge rounded-pill bg-secondary text-white">
+                            {{ user.date_joined|date }} </span></h6>
+
+                </div>
+            
+        </div>
+  
+</section>
+{% endblock %}

@@ -1,10 +1,13 @@
 {%extends "registration/base.html"%}
 {% load bootstrap4 %}
+{% load static %}
 {% block content %}
 <div class="container" id="loginpage">
   <div class="row">
     <!-- Empty div -->
-    <div class="col-md-3"></div>
+    <div class="col-md-3">
+      
+    </div>
     <div class="col-md-6">
       {% if form.errors %}
       <p> Password or Username is incorrect </p>
@@ -25,13 +28,14 @@
             </div>
 
             <input type="hidden" name="next" value="{{next}}">
+            <button><a href="/">HOME</a><button>
 
           </form>
           
 
         </div>
         <h1>Don't have account, register here<h1>
-          <a href="/accounts/register/" text-underline>Register</a>
+          <button><a href="/accounts/register/" text-underline>Register</a></button>
       </div>
 
     </div>

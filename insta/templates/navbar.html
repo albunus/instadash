@@ -1,4 +1,13 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-warning" id="navbar">
+{% load bootstrap4 %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/index.css'%}">
+{% block styles %}
+{% bootstrap_css %}
+<link rel="stylesheet" href="{% static 'css/index.css'%}">
+<link rel="stylesheet" href="{% static 'css/style.css'%}">
+{% endblock %}
+
+<nav class="navbar navbar-expand-lg navbar-light" id="navbar">
   <img src="static/images/instagram.png" width="70" height="50" />
 
   <button
@@ -9,38 +18,49 @@
     aria-controls="navbarSupportedContent"
     aria-expanded="false"
     aria-label="Toggle navigation"
-  >
-    <span class="navbar-toggler-icon"></span></button
-  ><br /><br /><br />
+    <span class="navbar-toggler-icon"></span></button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a
-          style="color: black"
-          href="/admin"
-          class="nav-item text-dark"
-          active-color="black"
-          ><i class="fas fa-user-tie text-dark"></i>&nbsp; &nbsp;Admin</a
-        >
-      </li>
+
       <li class="nav-item nav">
         <a class="nav-link nav" href="/"
-          ><i class="fa fa-home" aria-hidden="true"></i> Home</a
-        >
+          ><i class="fa fa-home"></i>Home </a>
       </li>
+      <li class="nav-item nav">
+        <a class="nav-link nav" href="/admin"
+          ><i class="fas fa-user-tie text-dark"></i>Admin </a>
+      </li>
+      <li class="nav-item nav">
+        <a class="nav-link nav" href="/profile"
+          ><i class="fa fa-user"></i>Profile </a>
+      </li>
+
     </ul>
-    <div class="col-sm-6 col-md-6 id="account">
+    <form class="form-inline my-2 my-lg-0 button">
+      <input
+        class="form-control mr-sm-2"
+        type="search"
+        placeholder="Search User"
+        aria-label="Search"
+      />
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
+        Search
+      </button>
+    </form>
+
+
+    <li type="none">
+      <a class="text-black" href="/accounts/register"><i class="fa fa-sign-in"></i>Register</a>
+    </li>
+    <div class="btn" id="account">
       {% if user.is_authenticated %}
       <ul>
-        <li class="dropdown">
-          <a
-            href="#"
-            class="dropdown-toggle btn btn-default"
+        <li class="dropdown" type="none">
+          <a href="/"
+            class="dropdown-toggle btn"
             data-toggle="dropdown"
-            role="button"
-            aria-expanded="false"
-            ><i class="fa fa-sign-in" aria-hidden="true"></i> My Account
+            role="button"><i class="fa fa-sign-in"></i> My Account
             <span class="caret"></span>
           </a>
           <ul class="dropdown-menu" role="menu">
@@ -55,24 +75,10 @@
       </ul>
       {% else %}
       <li>
-        <a class="btn btn-default" href="/accounts/login">Login</a>
+        <a class="btn btn-default" href="/accounts/login"><i class="fa fa-sign-in" aria-hidden="true"></i>Login</a>
       </li>
-
       {% endif %}
     </div>
-
-    <form class="form-inline my-2 my-lg-0 button">
-      <input
-        class="form-control mr-sm-2"
-        type="search"
-        placeholder="Search"
-        aria-label="Search"
-      />
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-        Search
-      </button>
-    </form>
-
   </div>
 </nav>
 <br />
