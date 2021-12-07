@@ -60,3 +60,14 @@ A user can search other users and it will return users found or display "Found 0
 1. Provides a delete function for image
    - INPUT: Delete button clicked
    - OUTPUT: Image deleted
+ ## Dependencies
+* django-bootstrap
+* Pillow
+* cloudinary
+* psycopg2
+* django-registration
+* python-decouple
+* Python Venv
+* whitenoise
+* gunicorn
+*****
