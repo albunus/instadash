@@ -11,7 +11,7 @@ from .email import send_welcome_email
 from django.core.exceptions import ObjectDoesNotExist
 
 # Create your views here.
-@login_required
+
 def index(request):
   comment_form = CommentsForm()
   post_form = postPhotoForm()
@@ -117,7 +117,7 @@ def follow(request,user_id):
   followed = Follows.objects.get(pk=user_id)
   follow_data,created = Follows.objects.get_or_create(follower = followee,followee = followed)
   follow_data.save()
-  return redirect('others_profile')
+  return redirect('user_profile', followed)
 
 def like(request, image_id):
     current_user = request.user
@@ -133,7 +133,7 @@ def unfollow(request,user_id):
   follower = Follows.objects.get(pk=user_id)
   follow_data = Follows.objects.filter(follower = follower,followee = followee).first()
   follow_data.delete()
-  return redirect('users_profile')
+  return redirect('users_profile', followee)
 
 @login_required
 def delete(request,photo_id):
