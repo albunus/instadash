@@ -77,3 +77,7 @@ A user can search other users and it will return users found or display "Found 0
 * JavaScript
 * CSS
 ******
+### License
+This project is under:  
+MIT LICENSE
+*****
