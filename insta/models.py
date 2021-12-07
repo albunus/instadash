@@ -1,80 +1,109 @@
 from django.db import models
-from cloudinary.models import CloudinaryField
-import datetime as dt
 from django.contrib.auth.models import User
+from django.dispatch import receiver
+from django.db.models.signals import post_save
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
-
 class Image(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='images',null=True)
-    name = models.CharField(max_length=50)
-    caption = models.TextField(max_length=400)
-    created_at = models.DateTimeField(auto_now_add=True)
-    image = CloudinaryField('image')
-    profile = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
-    like_count = models.IntegerField(default=0)
-    comment_count = models.IntegerField(default=0)
-   
-    
-    def save_image(self):
-        self.save()
-        
-        
-    # update image
-    def update_image(self, name):
-        self.name = name
-        self.name = name
-        self.save()
+  photo = CloudinaryField('image')
+  photo_name = models.CharField(max_length=60,null=True)
+  posted_at = models.DateTimeField(auto_now_add=True)
+  photo_caption = models.TextField(null= True)
+  user = models.ForeignKey(User,on_delete = models.CASCADE)
 
-    # get all images
-    @classmethod
-    def get_all_images(cls):
-        images = Image.objects.all()
-        return images
+  def save_photo(self):
+     self.save()
 
-    
-    def delete_image(self):
-        self.delete()
-    
-    def __str__(self):
-        return self.name
-    
+  @classmethod
+  def display_photos(cls):
+    photos = cls.objects.all().order_by('-posted_at')
+    return photos
+
+  @property
+  def saved_comments(self):
+    return self.comments.all()
+
+  @property
+  def saved_likes(self):
+    return self.photolikes.count()
+
+  @classmethod
+  def search_photos(cls,search_term):
+    photos = cls.objects.filter(photo_name__icontains = search_term).all()
+    return photos
+
+  def delete_post(self):
+    self.delete()
+
+  def __str__(self):
+    return  self.photo_name
 
 class Profile(models.Model):
-    nickname=models.TextField(max_length=50, null=True)
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    profile_photo = CloudinaryField('image')
-    bio = models.TextField(max_length=500, blank=True, null=True)
-    contact = models.CharField(max_length=50, blank=True, null=True)
-    
+  profile_photo = CloudinaryField('image')
+  bio = models.TextField()
+  user = models.OneToOneField(User,on_delete = models.CASCADE, null=True)
 
-    def update(self):
-        self.save()
 
-    def save_profile(self):
-        self.save()
+  @receiver(post_save , sender = User)
+  def create_profile(instance,sender,created,**kwargs):
+    if created:
+      Profile.objects.create(user = instance)
 
-    def delete_profile(self):
-        self.delete()
-        
-class Likes(models.Model):
-    image = models.ForeignKey(Image, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
+  @receiver(post_save,sender = User)
+  def save_profile(sender,instance,**kwargs):
+    instance.profile.save()
 
-    def __str__(self):
-        return Likes
+  @property
+  def saved_followers(self):
+    return self.followers.count()   
 
-class Comments(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    image = models.ForeignKey(Image, on_delete=models.CASCADE)
-    comment = models.CharField(max_length=50)
-    comm_date = models.DateTimeField(auto_now_add=True)
+  @property
+  def saved_following(self):
+    return self.following.count() 
 
-    def save_comment(self):
-        self.save()
-    
-    def delete_comment(self):
-        self.delete()
 
-    def __str__(self):
-        return self.comm_date
+  @property
+  def follows(self):
+    return [follow.followee for follow in self.following.all()]
+
+  @property
+  def following(self):
+    return self.followers.all()
+
+
+
+  @classmethod
+  def search_profiles(cls,search_term):
+    profiles = cls.objects.filter(user__username__icontains = search_term).all()
+    return profiles
+
+  def __str__(self):
+    return self.user
+
+class Follows(models.Model):
+  follower = models.ForeignKey(Profile, related_name='following',on_delete = models.CASCADE)
+  followee = models.ForeignKey(Profile, related_name='followers',on_delete = models.CASCADE)
+
+  def __str__(self):
+    return  self.follower
+
+class Like(models.Model):
+  image =models.ForeignKey(Image, on_delete = models.CASCADE,related_name='photolikes')
+  liker=models.ForeignKey(User,on_delete = models.CASCADE,related_name='userlikes')
+
+  def __str__(self):
+    return  self.photo
+
+class Comment(models.Model):
+  comment = models.TextField()
+  photo = models.ForeignKey(Image,on_delete = models.CASCADE,related_name='comments')
+  user = models.ForeignKey(User,on_delete = models.CASCADE,related_name='comments')
+
+  @classmethod
+  def display_comments_by_photoId(cls,photo_id):
+    comments = cls.objects.filter(photo_id = photo_id)
+    return comments
+
+  def __str__(self):
+    return  self.photo

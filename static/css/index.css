@@ -1,16 +1,13 @@
 
 #navbar{
-    background: rgb(173,32,94);
-    background: radial-gradient(circle, rgba(173,32,94,1) 5%, rgba(224,22,218,0.7203256302521008) 30%, rgba(160,185,229,1) 52%, rgba(194,194,14,1) 74%, rgba(148,187,233,1) 93%);
-padding: 1rem;
-text-indent: 1rem;
+background: rgb(183,195,34);
+background: linear-gradient(0deg, rgba(183,195,34,1) 4%, rgba(194,52,186,1) 6%, rgba(193,95,192,1) 20%, rgba(192,178,123,1) 30%, rgba(191,163,102,1) 50%, rgba(197,189,83,1) 60%, rgba(208,136,60,1) 85%);
+text-indent: 0.7rem;
 }
-h1{
+ h1{
     color: rgb(179, 24, 62);
 }
-body{
-    margin: 2rem;
-}
+
 
 #first{
     font-family: 'Cookie', cursive;
@@ -37,19 +34,61 @@ body{
     border-radius: 16px;
     }
 
-.date{
-    background-color: greenyellow;
-      }
 
-#name{
-    background-color: aqua;
-    color: brown;
-    }
-#account{
-    float: right;
-    color: red;
-}
 
-#loginpage{
-    background-color: aqua;
-}
+body{
+    overflow-x: hidden;
+    padding:0px;
+    margin:0px;
+    font-size: 20px;
+    background-color: burlywood;
+    
+  }
+  
+  .profile_photo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+  }
+  .username {
+    color: black;
+  }
+  nav {
+    color: #0d0d0e !important;
+    height: 8vh !important;
+    font-size: 25;
+    padding-top: 1vh;
+  }
+  
+  h2,h1 {
+    color: #141314;
+  }
+  .img-thumbnail {
+    cursor: pointer;
+    border-radius: 6px;
+  }
+  .gal-item {
+    float: left !important;
+  }
+  
+  .footer a {
+    color: #500ad1 !important;
+  }
+  img {
+    width: 70%;
+  }
+  .pull-right, .subscribe {
+    color: white !important;
+  }
+  .menu {
+    color: white !important;
+  }
+  
+  .name {
+    padding-top: 8%;
+    color: hsl(251, 96%, 29%);
+    text-align: center;
+  }
+  .slide {
+    width: auto;
+  }
