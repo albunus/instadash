@@ -18,11 +18,25 @@
         <div class="row1">
           <h3 class="">{{user.username}}</h3>
         </div>
+        <div class="media-body">
+                            <div class="">
+                                <span class="font-weight-bold name">{{ user_poster.username }}</span>
+                                {% if if_follow %}
+                                <a class="btn btn-sm btn-danger ml-5"/">UNFOLLOW</a>
+
+                                {%else%}
+
+                                <a class="btn btn-sm btn-primary ml-5"/">Follow</a>
+                                {% endif %}
+                
+                                
+                            </div>
+                        </div>
 
         <div class="row2 mt-3">
           <p class="">{{photos|length}} posts</p>
-          <p class="">{{user.profile.saved_followers}} followers</p>
-          <p class="">{{user.profile.saved_following}} following</p>
+          <p class="">{{user.profile.saved_followers.count}} followers</p>
+          <p class="">{{user.profile.saved_following.count}} following</p>
         </div>
         <div class="row3 mt-3">
           <p class="">{{user.profile.bio}}</p>

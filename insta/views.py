@@ -11,7 +11,7 @@ from .email import send_welcome_email
 from django.core.exceptions import ObjectDoesNotExist
 
 # Create your views here.
-
+@login_required
 def index(request):
   comment_form = CommentsForm()
   post_form = postPhotoForm()
