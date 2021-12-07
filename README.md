@@ -28,3 +28,9 @@ After a user successfully sign up and login, they will be redirected to profile 
 A user can click on any image and a page will be displayed containing the photo information like image name, caption, number of comments and likes and also date posted.  
 A user can only see a delete button if they are the owner of the post so they cannot delete a post belonging to another user
 *****
+
+*****
+### Search Function
+A user can search other users and it will return users found or display "Found 0 results if no match found by the search function.
+*****
+*****
