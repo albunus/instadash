@@ -7,7 +7,8 @@ This is a Django web application replica website for the photo app Instagram.It 
 * Python 3.8
 * Text editor 
 * You need to have git installed. You can install it with the following command in your terminal
-* ### Prerequisites
+* *****
+ ### Prerequisites
 * Python 3
 * Text editor eg Visual Studio Code
 * *****
@@ -17,3 +18,5 @@ To access this project on your local files, you can clone it using these steps
 1. Use this command to clone $ git clone 
 1. This will clone the repositoty into your local folder
 *****
+### Admin Site
+There is an admin site to manage the application entities
