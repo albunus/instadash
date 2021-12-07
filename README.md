@@ -71,3 +71,9 @@ A user can search other users and it will return users found or display "Found 0
 * whitenoise
 * gunicorn
 *****
+## Technologies Used
+* HTML
+* Python 3
+* JavaScript
+* CSS
+******
