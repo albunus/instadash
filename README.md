@@ -34,3 +34,29 @@ A user can only see a delete button if they are the owner of the post so they ca
 A user can search other users and it will return users found or display "Found 0 results if no match found by the search function.
 *****
 *****
+## Behaviour Driven Development
+1. Provides comment form
+   - INPUT: comment typed in the form input
+   - INPUT: comment button clicked
+   - OUTPUT: New comment added to the image
+1. Provides form to post photo 
+   - INPUT: Account action option 'post' clicked
+   - OUTPUT: Form page displayed
+   - INPUT: Form field inputs filled
+   - INPUT: Post button clicked
+   - OUTPUT: New post added
+1. Show user profile 
+   - INPUT: Account action option profile clicked
+   - OUTPUT: Profile page with user information and other users posts displayed
+1. Shows a like button
+   - INPUT: Heart  button icon clicked
+   - OUTPUT: Image liked
+1. Provides a search form
+   - INPUT: Search term entered in the search field
+   - OUTPUT: Number of matched user results displayed in the page
+1. Show photo details
+   - INPUT: Image is clicked
+   - OUTPUT: A new page loaded with image details
+1. Provides a delete function for image
+   - INPUT: Delete button clicked
+   - OUTPUT: Image deleted
